@@ -9,10 +9,10 @@ def process_insert_sort(unsorted_array: array) -> array:
         sorted_array
     """
     sorted_array = unsorted_array
-    for j in range(2, len(sorted_array)):
+    for j in range(1, len(sorted_array)):
         key = sorted_array[j]
         i = j - 1
-        while i > 0 and sorted_array[i] > key:
+        while i >= 0 and sorted_array[i] > key:
             sorted_array[i+1] = sorted_array[i]
             i = i - 1
         sorted_array[i+1] = key
@@ -28,6 +28,13 @@ def process_reverse_insert_sort(unsorted_array: array) -> array:
         reverse_sorted_array
     """
     reverse_sorted_array = unsorted_array
+    for j in range(1, len(reverse_sorted_array)):
+        key = reverse_sorted_array[j]
+        i = j - 1
+        while i >= 0 and reverse_sorted_array[i] < key:
+            reverse_sorted_array[i+1] = reverse_sorted_array[i]
+            i = i - 1
+        reverse_sorted_array[i+1] = key
 
     return reverse_sorted_array
 
